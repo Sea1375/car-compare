@@ -32,7 +32,7 @@ export default class Header extends Component {
                             <img className="logo" src="image/logo.png"/>
                             <div className="w-100 text-end">
                                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
-                                    <span className="navbar-toggler-icon"></span>
+                                    <i class="far fa-bars"></i>
                                 </button>
                             </div>
                         </div>

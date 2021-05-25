@@ -280,9 +280,12 @@ body {
       
 
       .image-wrapper {
-          height: 60%;
+        //   height: 60%;
           overflow: hidden;
           position: relative;
+          width: 100%;
+          padding-top: 65%;
+
           img {
               width: 100%;
           }
@@ -305,6 +308,7 @@ body {
           margin-top: -60px;
           position: relative;
           color: #757575;
+          min-height: 140px;
 
           .fs-8 {
               font-size: 0.7rem;
@@ -387,7 +391,23 @@ body {
                       background-color: #e5e5e5;
                   }
 
+
+
                   .features-item {
+
+                      .form-check-input {
+                        border-color: #2ec4b6;
+
+                        &:checked {
+                            background-color: #2ec4b6;
+                            border-color: #2ec4b6;    
+                        }
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                      } 
+
                       .form-switch {
                           input {
                               position: absolute;
@@ -395,9 +415,48 @@ body {
                           }
                       }
                   }
+
+									.features-item-compared {
+										position: relative;
+										padding: 10px 15px;
+										border: 1px solid #E5E5E5;
+										border-radius: 5px;
+										font-size: 0.7rem;
+										margin: 10px 0px;
+
+										.title {
+											position: absolute;
+											color: #757575;
+											top: -8px;
+											padding: 0px 4px;
+											background-color: white;
+											margin-left: -4px;
+										}
+
+										i {
+											color: #2ec4b6;
+											font-size: 1.22rem;
+    									float: right;
+										}
+									}
               }
           }
       }
+
+			.compare-desc {
+				border-radius: 10px;
+				-webkit-box-shadow: 0px 1px 3px 5px #E5E5E5; 
+				box-shadow: 0px 1px 3px 5px #E5E5E5;
+
+				p {
+					color: #757575;
+					font-size: 0.7rem;
+				}
+
+				h5 {
+					font-size: 1rem;
+				}
+			}
 
       .compare-wrapper {
           -webkit-box-shadow: 0px 1px 3px 5px #E5E5E5; 
@@ -409,6 +468,36 @@ body {
           -webkit-box-shadow: 0px 1px 3px 5px #E5E5E5; 
           box-shadow: 0px 1px 3px 5px #E5E5E5;
           position: relative;
+
+          .rank-wrapper {
+						.rank {
+							width: 60px;
+							height: 60px;
+							padding-top: 6px;
+    					vertical-align: middle;
+							background-image: url(../public/image/rank.png);
+
+							span.number {
+								margin-bottom: -5px;
+							}
+						}
+
+						&.winner .rank{
+							background-image: url(../public/image/rank-winner.png);
+						}
+
+						.winnder-item {
+							background-color: #fca311;
+							color: white;
+							padding: 0px 20px;
+							border-radius: 5px;
+							padding-bottom: 3px;
+
+							i {
+								vertical-align: middle;
+							}
+						}
+          }
 
           .item-img {
               text-align: center;
@@ -449,15 +538,116 @@ body {
           .vs-image {
               position: absolute;
               left: 48%;
-              top: 63%;
+              top: 23vw;
               img {
                   width: 45px;
               }
           }
 
+					.popularity-wrapper {
+						text-align: center;
+
+						.title {
+							img {
+								width: 20px;
+								margin-right: 10px;
+							}
+						}
+
+						.detail {
+							color: #757575;
+
+							.fs-8 {
+								font-size: 0.75rem;
+								margin-top: 3px;
+							}
+
+							.progress { 
+								border-radius: 0.5rem;
+								.progress-bar {
+									border-radius: 0.5rem;
+								}
+							}
+
+							.left {
+								.number {
+									color: #fca311;
+								}
+								.progress {
+									justify-content: flex-end;
+									
+									.progress-bar {
+										background-color: #fca311;
+									}
+								}
+								
+							} 
+
+							.right {
+								.number {
+									color: #2ec4b6;
+								}	
+								.progress-bar {
+									background-color: #2ec4b6;
+								}
+							}
+						}
+					}
+
+					.compared_data {
+						.title {
+							padding: 3px 20px;
+							background-color: #f6f5f7;
+							border-radius: 5px;
+
+							img {
+								width: 18px;
+								vertical-align: sub;
+							}
+
+							h5 {
+								display: inline-block;
+								margin-bottom: 0;
+							}
+						}
+
+						.details {
+							text-align: center;
+							.detail_item {
+								.detail_name {
+									color: #757575;
+									text-transform: uppercase;
+								}
+
+								.car1_detail {
+									color: #fca311;
+								}
+
+								.car2_detail {
+									color: #2ec4b6;
+								}
+
+								.item {
+									// align-items: center;
+									// justify-content: center;
+									// display: flex;
+								}
+
+								@media (max-width: 768px) {
+									.car1_detail {
+										text-align: left;
+									}
+									.car2_detail {
+										text-align: right;
+									}
+								}
+							}	
+						}
+					}
+
           @media (max-width: 992px) {
               .vs-image {
-                  top: 25%;
+                  top: 35vw;
                   left: 45%;
                   img {
                       width: 40px;

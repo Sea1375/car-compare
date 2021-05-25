@@ -59,7 +59,19 @@
         top: 35%;
         background-color: #757575;
     }
+
+    @media (max-width: 992px) {
+        &::before {
+            content: none;
+        }
+
+        .btn-compare {
+            margin-left: 1.5rem;
+        }
+    }
 }
+
+
 
 .main-header {
     .logo {
