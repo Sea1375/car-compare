@@ -538,10 +538,14 @@ body {
           .vs-image {
               position: absolute;
               left: 48%;
-              top: 23vw;
+              top: 19vw;
               img {
                   width: 45px;
               }
+
+							&.compared {
+								top: 23vw;
+							}
           }
 
 					.popularity-wrapper {
@@ -647,11 +651,15 @@ body {
 
           @media (max-width: 992px) {
               .vs-image {
-                  top: 35vw;
+                  top: 25vw;
                   left: 45%;
                   img {
                       width: 40px;
                   }
+
+									&.compared {
+										top: 35vw;
+									}
               }
 
               .compare-item-left{

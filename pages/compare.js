@@ -25,6 +25,25 @@ export default class Compare extends React.Component {
         };
     }
     render() {
+        let comparisonFeatures = this.state.data.comparisonFeatures;
+        let features_items = Object.keys(comparisonFeatures).map(function(key) {
+            return (
+                <div className="features-item-wrapper mb-1">
+                    <div className="toggler clearfix" data-bs-toggle="collapse" href={`#${key}`} role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <h6 className="float-start">{key}</h6>
+                        <i className="fal fa-chevron-down float-end"></i>
+                    </div>
+                    <div className="collapse" id={key}>
+                        <div className="divider mb-1"></div>
+                        {comparisonFeatures[key].map((item, index) =>
+                            <FeaturesItem item={item} />
+                        )}
+                    </div>
+                </div>
+            )
+            
+        });
+        console.log(features_items);
         return (
             <div className="page-car section pt-2 page-wrapper">
                 <div className="container">
@@ -37,7 +56,10 @@ export default class Compare extends React.Component {
                                     </div>
 
                                     <div className="features-items">
-                                        <div className="features-item-wrapper mb-1">
+                                        
+                                        {features_items}
+
+                                        {/* <div className="features-item-wrapper mb-1">
                                             <div className="toggler clearfix" data-bs-toggle="collapse" href="#engine-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
                                                 <h6 className="float-start">Engine</h6>
                                                 <i className="fal fa-chevron-down float-end"></i>
@@ -85,215 +107,7 @@ export default class Compare extends React.Component {
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#suspension-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Suspension</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="suspension-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Suspension</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#steering-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Steering</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="steering-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Steering</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#wheels-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Wheels & Tyres</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="wheels-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Wheels</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#brakes-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Brakes</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="brakes-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Brakes</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#performance-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Performance</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="performance-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Performance</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#safety-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Safety</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="safety-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Safety</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#exterior-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Exterior</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="exterior-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Exterior</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#seats-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Seats & Upholstery</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="seats-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Seats</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="features-item-wrapper mb-1">
-                                            <div className="toggler clearfix" data-bs-toggle="collapse" href="#instrumentation-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <h6 className="float-start">Instrumentation</h6>
-                                                <i className="fal fa-chevron-down float-end"></i>
-                                            </div>
-                                            <div className="collapse" id="instrumentation-collapse">
-                                                <div className="divider mb-1"></div>
-                                                <div className="features-item">
-                                                    <div className="row">
-                                                        <div className="col-9 pe-0">
-                                                            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                                                            <label className="fw-bold fs-7 ms-2">Instrumentation</label>
-                                                        </div>
-                                                        <div className="col-3 text-end">
-                                                            <div className="form-check form-switch position-relative">
-                                                                <input className="form-check-input" type="checkbox" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
+                                        */}
                                     </div>
                                 </div>
                             </div>

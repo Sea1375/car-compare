@@ -338,7 +338,7 @@ export default class Compared extends React.Component {
                                             
                                             </div>
 
-                                            <div className="vs-image">
+                                            <div className="vs-image compared">
                                                 <img src="image/vs.png" />
                                             </div>
 
